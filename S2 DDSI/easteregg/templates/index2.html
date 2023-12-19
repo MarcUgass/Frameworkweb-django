@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seminario 2 DDSI</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/index2.css' %}">
+</head>
+
+<body>
+    <div class="contenedorPrincipal">
+
+        <div class="javierPadre">
+            {% load static %}
+            <img src="{% static 'imagenes/havi.png' %}" alt="Javi no se puede poner ahora" class="Javisito">
+            <link href="https://youtu.be/UidCG5APHc0?si=bOBLUld3WiUJ_UT7"><span class="textoJavi">Hola mundo</span>
+        </div>
+
+        <div class="controles">
+            <form method="post" action="{% url 'formulario' %}">
+                {% csrf_token %}
+                <p>
+                    <label for="fechaPed">Fecha pedido:</label>
+                    <input name="fechaPed">
+                </p>
+                <p>
+                    <label for="codCliente">Código cliente:</label>
+                    <input name="codCliente">
+                </p>
+                <p>
+                    <label for="codProd">Código producto:</label>
+                    <input name="codProd">
+                </p>
+                <p>
+                    <label for="codPed">Código pedido:</label>
+                    <input name="codPed">
+                </p>
+                <p>
+                    <label for="cantidad">Cantidad:</label>
+                    <input name="cantidad">
+                </p>
+                <button type="submit" class="boton" >Insertar</button>
+            </form>
+            <a href="{% url 'genBD' %}"><button type="submit" class="boton" >Crear BD</button></a>
+            <p>{{miTexto}}</p>
+            <p>{{fechaPed}}</p>
+            <p>{{codCliente}}</p>
+            <p>{{codProd}}</p>
+            <p>{{codPed}}</p>
+            <p>{{cantidad}}</p>
+        </div>
+
+    </div>
+</body>
+
+</html>
